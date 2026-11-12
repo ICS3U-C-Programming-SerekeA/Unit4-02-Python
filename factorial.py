@@ -6,26 +6,40 @@
 
 
 def main():
+    # Initialize the variables
+    loop_counter = 0
+    factorial_answer = 1
 
-    counter = 0
-    factorial = 1
-
+    # Get the user number
     user_number_as_string = input("Enter a whole number: ")
+
     try:
-        user_number_int = int(user_number_as_string)
-        if user_number_int < 0:
-            print(" {}, is not a whole number.".format(user_number_int))
+        user_number = int(user_number_as_string)
+
+        if user_number < 0:
+            print("{} is not a positive whole number.".format(user_number))
+
         else:
-            while counter < user_number_int:
-                counter = counter + 1
-                factorial = factorial * counter
-            print("The factorial of {} is {}".format(user_number_int, factorial))
+            print("")
+
+            # Replicates a do-while loop
+            while True:
+                loop_counter = loop_counter + 1
+                factorial_answer = factorial_answer * loop_counter
+
+                print("Tracking {} times through loop.".format(loop_counter))
+
+                if loop_counter >= user_number:
+                    break
+
+            print("{}! = {}".format(user_number, factorial_answer))
+
     except ValueError:
-        print(
-            "{} is not a whole number. Please enter a whole number.".format(
-                user_number_as_string
-            )
-        )
+        print("{} is not a valid whole number.".format(user_number_as_string))
+
+    finally:
+        print("")
+        print("Thanks for playing!")
 
 
 if __name__ == "__main__":
